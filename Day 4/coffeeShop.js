@@ -49,11 +49,9 @@ let coffeeShop = {
         totalCost += foodPrice;
         //same statement to check for item in drinks list
       } else if (alldrinks.includes(individualItem)) {
-        console.log(individualItem);
         let drinkPrice = coffeeShop.drinksMenu[individualItem];
         orderList.push(individualItem);
         prices.push(drinkPrice);
-        console.log(prices);
         totalCost += drinkPrice;
       }
       //provide an error for an invalid item and a full food and drink menu to choose from
