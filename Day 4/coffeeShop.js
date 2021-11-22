@@ -13,8 +13,8 @@ let coffeeShop = {
     burger: 8,
     salad: 7,
   },
-  //create an order aggregation method
-  Order() {
+  //created an order aggregation method, takes rest parameters to make an array out of parameters given
+  Order(...order1) {
     // create a list out of all food values
     let allfood = Object.keys(this.foodMenu);
     //create a list out of all drinks values
@@ -24,8 +24,7 @@ let coffeeShop = {
       ...Object.keys(this.foodMenu),
       ...Object.keys(this.drinksMenu),
     ];
-    //provide an order
-    let order1 = ["sandwich", "tea", "sprite", "burger"];
+
     //create empty list of cost
     let prices = [];
     //create empty list of order items to push valid items into
@@ -53,9 +52,8 @@ let coffeeShop = {
         orderList.push(individualItem);
         prices.push(drinkPrice);
         totalCost += drinkPrice;
-      }
-      //provide an error for an invalid item and a full food and drink menu to choose from
-      else {
+      } else {
+        //provide an error for an invalid item and a full food and drink menu to choose from
         console.log(
           `We don't have ${individualItem}, please pick from one of the following: ${allitems}.`
         );
@@ -70,5 +68,6 @@ let coffeeShop = {
     console.log(`Your total will be: £${totalCost}`);
   },
 };
-//call upon the method
-coffeeShop.Order();
+//call  the method
+coffeeShop.Order("coffee", "tea");
+coffeeShop.Order("fudge", "coffee");
